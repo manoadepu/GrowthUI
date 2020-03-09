@@ -1,0 +1,177 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Grow</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+        <ion-grid>
+<!--            //Mental-->
+            <ion-row>
+                <ion-col size="12">
+                    <ion-label>How are you feeling Mentally?</ion-label>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+
+                <ion-col size="11">
+                        <form [formGroup]="mentalForm">
+                            <ion-item lines="none" >
+                                <ion-textarea
+                                        rows="3"
+                                        placeholder="Enter here . ."
+                                        class="input"
+                                        type="text"
+                                        formControlName="mentalFormControlText"
+                                        [(ngModel)]="mentalData">
+                                </ion-textarea>
+                            </ion-item>
+                        </form>
+                    </ion-col>
+
+                    <ion-col size="1">
+                        <ion-icon *ngIf="mentalData!=null && mentalDataSavedNotification===false" name="send" (click)="SaveMentalData()"></ion-icon>
+                        <ion-icon *ngIf="mentalDataSavedNotification" name="cloud-done"></ion-icon>
+                    </ion-col>
+            </ion-row>
+<!--            //Mental End-->
+
+
+
+
+            <!--            //Physical-->
+            <ion-row>
+                <ion-col size="12">
+                    <ion-label>How are you feeling Physically?</ion-label>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+
+                <ion-col size="11">
+                    <form [formGroup]="physicalForm">
+                        <ion-item lines="none" >
+                            <ion-textarea
+                                    rows="3"
+                                    placeholder="Enter here . ."
+                                    class="input"
+                                    type="text"
+                                    formControlName="physicalFormControlText"
+                                    [(ngModel)]="physicalData">
+                            </ion-textarea>
+                        </ion-item>
+                    </form>
+                </ion-col>
+
+                <ion-col size="1">
+                    <ion-icon *ngIf="physicalData!=null && physicalDataSavedNotification===false" name="send" (click)="SavePhysicalData()"></ion-icon>
+                    <ion-icon *ngIf="physicalDataSavedNotification" name="cloud-done"></ion-icon>
+                </ion-col>
+            </ion-row>
+            <!--            //Physical End-->
+
+<!--            Expense-->
+            <ion-row>
+                <ion-col size="12">
+                    <ion-label>Expense?</ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <tr>
+                    <td>
+                        <form [formGroup]="expenseForm">
+                            <ion-item lines="none" >
+                                <ion-textarea
+                                        rows="1"
+                                        placeholder="Expense Type"
+                                        class="input"
+                                        type="text"
+                                        formControlName="expenseFormControlTextType"
+                                        [(ngModel)]="expenseDataType">
+                                </ion-textarea>
+                            </ion-item>
+                        </form>
+                    </td>
+                    <td>
+                        <form [formGroup]="expenseForm">
+                            <ion-item lines="none" >
+                                <ion-textarea
+                                        rows="1"
+                                        placeholder="Price"
+                                        class="input"
+                                        type="text"
+                                        formControlName="expenseFormControlTextPrice"
+                                        [(ngModel)]="expenseDataPrice">
+                                </ion-textarea>
+                            </ion-item>
+                        </form>
+                    </td>
+                    <td>
+                        <ion-icon *ngIf="expenseDataPrice!=null && expenseDataType!=null && expenseDataSavedNotification===false" name="send" (click)="SaveExpenseData()"></ion-icon>
+                        <ion-icon *ngIf="expenseDataSavedNotification" name="cloud-done"></ion-icon>
+                    </td>
+                </tr>
+            </ion-row>
+<!--            Expense End-->
+
+            <!--            Expense-->
+            <ion-row>
+                <ion-col size="12">
+                    <ion-label>Exercise?</ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <tr>
+                    <td>
+                        <form [formGroup]="exerciseForm">
+                            <ion-item lines="none" >
+                                <ion-textarea
+                                        rows="1"
+                                        placeholder="Exercise Type"
+                                        class="input"
+                                        type="text"
+                                        formControlName="exerciseFormControlTextType"
+                                        [(ngModel)]="excerciseDataType">
+                                </ion-textarea>
+                            </ion-item>
+                        </form>
+                    </td>
+                    <td>
+                        <form [formGroup]="exerciseForm">
+                            <ion-item lines="none" >
+                                <ion-textarea
+                                        rows="1"
+                                        placeholder="Time"
+                                        class="input"
+                                        type="text"
+                                        formControlName="exerciseFormControlTextTime"
+                                        [(ngModel)]="excerciseDataTime">
+                                </ion-textarea>
+                            </ion-item>
+                        </form>
+                    </td>
+                    <td>
+                        <ion-icon *ngIf="excerciseDataType!=null && excerciseDataTime!=null && exerciseDataSavedNotification===false" name="send" (click)="SaveExcerciseData()"></ion-icon>
+                        <ion-icon *ngIf="exerciseDataSavedNotification" name="cloud-done"></ion-icon>
+                    </td>
+                </tr>
+            </ion-row>
+            <!--            Expense End-->
+            <ion-row>
+                <ion-col size="3">
+                    <a color="secondary" href="view-mental">View Mental Notes</a>
+                </ion-col>
+                <ion-col size="3">
+                    <a color="secondary" href="view-physical">View Physical Notes</a>
+                </ion-col>
+                <ion-col size="3">
+                    <a color="secondary" href="view-exercise">View Exercise Notes</a>
+                </ion-col>
+                <ion-col size="3">
+                    <a color="secondary" href="view-expense">View Expense Notes</a>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+</ion-content>
